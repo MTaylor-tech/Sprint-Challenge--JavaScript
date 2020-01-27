@@ -30,7 +30,11 @@ Edit this document to include your answers after each question. Make sure to lea
 
 1. Describe the biggest difference between `.forEach` & `.map`.
 
+.forEach and .map both iterate over each object in an array and run a function on the items within, but .map collects the values returned by the function as an array, while .forEach does not. So, use .forEach if all you want to do is loop over the items in an array, but use .map if you are trying to get an array of the same size but different data based on the items in the original array.
+
 2. What is the difference between a function and a method?
+
+A method is a function that exists on an object which can be called through dot notation to perform some action based on the data held by that particular object. So, a `Person` object might have a `fullName` method that concatenates the object's first and last names to return a value representing the person's full name when it is called as `person.fullName()`. Non-method functions are not attached to a specific object, so, in order for them to act on objects, those objects need to be passed into the parameters of the function `getFullName(person)`. Methods can also read any property on their object using keyword `this`, e.g. `this.firstName`.
 
 3. What is closure?
 
@@ -46,14 +50,14 @@ Follow these steps to set up and work on your project:
 - [x] Add TL as collaborator on Github.
 - [x] Clone your OWN version of Repo (Not Lambda's by mistake!).
 - [x] Create a new Branch on the clone: git checkout -b `<firstName-lastName>`.
-- [ ] Create a pull request before you start working on the project requirements.  You will continuously push your updates throughout the project.
-- [ ] You are now ready to build this project with your preferred IDE
-- [ ] Implement the project on your Branch, committing changes regularly.
-- [ ] Push commits: git push origin `<firstName-lastName>`.
+- [x] Create a pull request before you start working on the project requirements.  You will continuously push your updates throughout the project.
+- [x] You are now ready to build this project with your preferred IDE
+- [x] Implement the project on your Branch, committing changes regularly.
+- [x] Push commits: git push origin `<firstName-lastName>`.
 
 Follow these steps for completing your project:
 
-- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's  Repo).
+- [x] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's  Repo).
 - [ ] Add your team lead as a Reviewer on the Pull-request
 - [ ] TL then will count the HW as done by  merging the branch back into master.
 
