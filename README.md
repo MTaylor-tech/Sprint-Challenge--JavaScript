@@ -69,19 +69,19 @@ Variables and functions defined within a limited scope (inside a function or loo
 
 4. Describe the four rules of the 'this' keyword.
 
-a.Window/Global Object Binding - Invoked in a global scope, `this` refers to
-  the window or console. (Important to remember for arrow functions, because
-  `this` also refers to the window in these functions.)
+  a. Window/Global Object Binding - Invoked in a global scope, `this` refers to
+    the window or console. (Important to remember for arrow functions, because
+    `this` also refers to the window in these functions.)
 
-b.Implicit Binding - When used within a function called using dot notation
-  `this` refers to the object that precedes the dot.
+  b. Implicit Binding - When used within a function called using dot notation
+    `this` refers to the object that precedes the dot.
 
-c.New binding - When used within an object property or method, `this` refers
-  to the instance of that object in which it is invoked.
+  c. New binding - When used within an object property or method, `this` refers
+    to the instance of that object in which it is invoked.
 
-d.Explicit binding - When using `.call()` and `.apply()` methods, `this` is
-  explicitly defined within the parentheses and linked to the object passed
-  to the `call` or `apply` method.
+  d. Explicit binding - When using `.call()` and `.apply()` methods, `this` is
+    explicitly defined within the parentheses and linked to the object passed
+    to the `call` or `apply` method.
 
 5. Why do we need super() in an extended class?
 
