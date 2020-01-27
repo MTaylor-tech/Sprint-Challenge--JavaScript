@@ -40,29 +40,29 @@ A method is a function that exists on an object which can be called through dot 
 
 Variables and functions defined within a limited scope (inside a function or loop) cannot be accessed outside of that scope. This allows us to reuse code because, for instance, a single variable name within a function could refer to any object that is passed as an argument to that function. Limited scopes, however, can reach outside of their scope to access variables and functions defined globally or within their parent scope (or any ancestor scope), i.e.:
 
-  let counter=0;
+    let counter=0;
 
-  function incrementCounter {
-    //inside here is a limited scope
-    let counter2 = 0;
-    counter ++; //counter can be accessed here because it is a more global scope
-    counter2 += 2; //counter2 can be accessed here because it is defined within this scope
+    function incrementCounter {
+      //inside here is a limited scope
+      let counter2 = 0;
+      counter ++; //counter can be accessed here because it is a more global scope
+      counter2 += 2; //counter2 can be accessed here because it is defined within this scope
 
-    function addEight() {
-      //this nested function is an even more limited scope than its parent function (incrementCounter)
-      //it can access global variables and functions and those within incrementCounter
-      counter2 += 8;
-      counter += 8;
+      function addEight() {
+        //this nested function is an even more limited scope than its parent function (incrementCounter)
+        //it can access global variables and functions and those within incrementCounter
+        counter2 += 8;
+        counter += 8;
+      }
+
+      addEight(); //even though it is defined above, it is necessary to call the function addEight, or it does nothing.
+      //incrementCounter can access addEight because it is defined within incrementCounter
     }
 
-    addEight(); //even though it is defined above, it is necessary to call the function addEight, or it does nothing.
-    //incrementCounter can access addEight because it is defined within incrementCounter
-  }
-
-  console.log(counter); //counter can be globally referenced. `0`
-  incrementCounter();
-  console.log(counter); //counter will be changed by incrementCounter `9`
-  console.log(counter2); //ERROR! counter2 is defined within incrementCounter and cannot be referenced outside its scope
+    console.log(counter); //counter can be globally referenced. `0`
+    incrementCounter();
+    console.log(counter); //counter will be changed by incrementCounter `9`
+    console.log(counter2); //ERROR! counter2 is defined within incrementCounter and cannot be referenced outside its scope
 
 
 
@@ -81,6 +81,8 @@ Variables and functions defined within a limited scope (inside a function or loo
   to the `call` or `apply` method.
 
 5. Why do we need super() in an extended class?
+
+`super()` calls the constructor method on the parent class, setting up the part of the object that the child class shares in common with the parent class. If you don't do this, properties that are defined by the constructor on the parent class will be inaccessible, and the object will be incomplete, responding in unpredicted ways.
 
 ## Project Set up
 
