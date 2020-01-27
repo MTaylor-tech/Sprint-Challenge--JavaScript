@@ -38,7 +38,47 @@ A method is a function that exists on an object which can be called through dot 
 
 3. What is closure?
 
+Variables and functions defined within a limited scope (inside a function or loop) cannot be accessed outside of that scope. This allows us to reuse code because, for instance, a single variable name within a function could refer to any object that is passed as an argument to that function. Limited scopes, however, can reach outside of their scope to access variables and functions defined globally or within their parent scope (or any ancestor scope), i.e.:
+
+  let counter=0;
+
+  function incrementCounter {
+    //inside here is a limited scope
+    let counter2 = 0;
+    counter ++; //counter can be accessed here because it is a more global scope
+    counter2 += 2; //counter2 can be accessed here because it is defined within this scope
+
+    function addEight() {
+      //this nested function is an even more limited scope than its parent function (incrementCounter)
+      //it can access global variables and functions and those within incrementCounter
+      counter2 += 8;
+      counter += 8;
+    }
+
+    addEight(); //even though it is defined above, it is necessary to call the function addEight, or it does nothing.
+    //incrementCounter can access addEight because it is defined within incrementCounter
+  }
+
+  console.log(counter); //counter can be globally referenced. `0`
+  incrementCounter();
+  console.log(counter); //counter will be changed by incrementCounter `9`
+  console.log(counter2); //ERROR! counter2 is defined within incrementCounter and cannot be referenced outside its scope
+
+
+
+
 4. Describe the four rules of the 'this' keyword.
+
+1.Window/Global Object Binding - Invoked in a global scope, `this` refers to
+  the window or console. (Important to remember for arrow functions, because
+  `this` also refers to the window in these functions.)
+2.Implicit Binding - When used within a function called using dot notation
+  `this` refers to the object that precedes the dot.
+3.New binding - When used within an object property or method, `this` refers
+  to the instance of that object in which it is invoked.
+4.Explicit binding - When using `.call()` and `.apply()` methods, `this` is
+  explicitly defined within the parentheses and linked to the object passed
+  to the `call` or `apply` method.
 
 5. Why do we need super() in an extended class?
 
@@ -58,7 +98,7 @@ Follow these steps to set up and work on your project:
 Follow these steps for completing your project:
 
 - [x] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's  Repo).
-- [ ] Add your team lead as a Reviewer on the Pull-request
+- [x] Add your team lead as a Reviewer on the Pull-request
 - [ ] TL then will count the HW as done by  merging the branch back into master.
 
 
