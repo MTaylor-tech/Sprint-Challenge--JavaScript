@@ -67,6 +67,9 @@ Create a new array called unisWithUni that contains them all. This will be an ar
  Log the result. */
 const unisWithUni = universities.filter(uni => uni.includes('Uni'));
 console.log(unisWithUni);
+// To more correctly make this 'an array of objects' rather than an array of strings:
+const unisWithUniObjects = unisWithUni.map((uni,index) => {return {id: index+1, name: uni}});
+console.log(unisWithUniObjects);
 
 
 // ==== ADVANCED Array Methods ====
